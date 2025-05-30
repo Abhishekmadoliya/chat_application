@@ -35,6 +35,14 @@ io.on('connection', (socket) => {
     });
 });
 
+io.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+});
+
+app.use(cors());
+app.use(express.json());
+
 
 
 server.listen(3000, () => {
